@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:orientation="vertical"
+    android:padding="18dp"
+    android:gravity="bottom"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@drawable/fewataal">
+    
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Photo Genie"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+</LinearLayout>
