@@ -15,4 +15,6 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="logo">logo</string>
+    <string name="open_drawer">Open navigation drawer</string>
+    <string name="close_drawer">Close navigation drawer</string>
 </resources>
