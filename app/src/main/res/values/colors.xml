@@ -5,6 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffff</color>
     <color name="toolbar">#2E86C1</color>
+    <color name="combo1">#CC4645</color>
+    <color name="combo2">#104D75</color>
+    <color name="background">#f4f6f7</color>
 
 
 </resources>

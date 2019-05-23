@@ -1,5 +1,6 @@
 package com.example.androidassignment;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -54,6 +55,8 @@ toggle.syncState();
         switch (id){
             case R.id.login_id:
                 Toast.makeText(this, " redirecting to login/register", Toast.LENGTH_SHORT).show();
+                Intent intent =new Intent(MainActivity.this,LoginRegister.class);
+                startActivity(intent);
             break;
             case R.id.about_id:
                 Toast.makeText(this, " redirecting to about", Toast.LENGTH_SHORT).show();
