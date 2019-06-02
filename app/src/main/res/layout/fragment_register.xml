@@ -7,20 +7,30 @@
     android:background="@color/background"
     tools:context=".LoginFragment">
 
+
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        >
+       <ImageView
+           android:layout_marginTop="-120dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:src="@drawable/mountain"
+      />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/registerandroid"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            android:id="@+id/imgregister"/>
 
 
         <android.support.design.widget.TextInputLayout
@@ -28,8 +38,10 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-
             app:errorEnabled="true"
+android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_below="@+id/imgregister"
             android:id="@+id/text_input_firstname"
         >
 
@@ -37,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name"
+
             android:ems="10"
             android:inputType="text"
             android:digits="abcdefghijklmnopqrstuvwxy"
@@ -49,8 +62,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:focusableInTouchMode="true"
-
+android:layout_below="@+id/text_input_firstname"
             app:errorEnabled="true"
             android:id="@+id/text_input_lastname"
             >
@@ -70,8 +85,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:focusableInTouchMode="true"
-
+android:layout_below="@+id/text_input_lastname"
             app:errorEnabled="true"
             android:layout_marginTop="10dp"
             android:id="@+id/text_input_username"
@@ -93,8 +110,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:focusableInTouchMode="true"
-
+android:layout_below="@+id/text_input_username"
             android:id="@+id/text_input_password"
             app:passwordToggleEnabled="true"
             app:errorEnabled="true"
@@ -117,8 +136,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:focusableInTouchMode="true"
-
+android:layout_below="@+id/text_input_password"
             android:id="@+id/text_input_confirmpassowrd"
             android:layout_marginTop="10dp"
             app:passwordToggleEnabled="true"
@@ -141,7 +162,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     android:layout_marginTop="15dp"
+    android:layout_below="@+id/text_input_confirmpassowrd"
+    android:id="@+id/radiogender"
     >
     <TextView
         android:layout_width="wrap_content"
@@ -168,17 +193,22 @@
 </RadioGroup>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
+            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:text="REGISTER"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:textSize="22dp"
             android:textColor="@color/white"
 android:background="@drawable/button_rounded"
-            android:layout_marginTop="40dp"
+            android:layout_below="@+id/radiogender"
+            android:layout_marginTop="25dp"
             android:id="@+id/btnregister"
             />
 
 
-    </LinearLayout>
+
+    </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
 </FrameLayout>

@@ -20,9 +20,9 @@ public class LoginRegister extends AppCompatActivity {
 
         Aadapterlogin adapter = new Aadapterlogin(getSupportFragmentManager());
 
-
-        adapter.addFragment(new RegisterFragment(),"Register");
         adapter.addFragment(new LoginFragment(),"Login");
+        adapter.addFragment(new RegisterFragment(),"Register");
+
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

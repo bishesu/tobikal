@@ -1,21 +1,25 @@
 package com.example.androidassignment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements View.OnClickListener {
     private TextInputLayout textInputUsernamelogin;
     private  TextInputLayout textInputPasswordlogin;
+    private TextView loginintent;
 Button button;
     // Required empty public constructor
     public LoginFragment() {
@@ -31,16 +35,9 @@ Button button;
         textInputUsernamelogin = rootView.findViewById(R.id.text_input_username_login);
         textInputPasswordlogin = rootView.findViewById(R.id.text_input_password_login);
         button = rootView.findViewById(R.id.btnlogin);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!validateusernamelogin() | !validatepasswordlogin() ){
-
-                    return;
-                }
-            }
-        });
+        loginintent=rootView.findViewById(R.id.intenttv);
+        loginintent.setOnClickListener(this);
+        button.setOnClickListener(this);
         return rootView;
     }
     private boolean validateusernamelogin(){
@@ -62,5 +59,28 @@ Button button;
             textInputPasswordlogin.setError(null);
             return true;
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnlogin:
+                if (!validateusernamelogin() | !validatepasswordlogin() ){
+
+                    return;
+                }
+                break;
+
+            case R.id.intenttv:
+
+//                Intent intent=new Intent(getContext(),LoginRegister.class);
+//                startActivity(intent);
+                TabLayout tabs = (TabLayout) getActivity().findViewById(R.id.tabId);
+                tabs.getTabAt(1).select();
+
+
+                break;
+        }
+
     }
 }
