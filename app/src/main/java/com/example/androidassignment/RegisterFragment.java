@@ -22,7 +22,7 @@ public class RegisterFragment extends Fragment  {
     private TextInputLayout textInputLastname;
     private TextInputLayout textInputUsername;
     private  TextInputLayout textInputPassword;
-    private  TextInputLayout textInputConfirmpassword;
+    private  TextInputLayout textInputEmail;
     Button register;
     public RegisterFragment() {
         // Required empty public constructor
@@ -40,12 +40,12 @@ public class RegisterFragment extends Fragment  {
         textInputLastname = rootView.findViewById(R.id.text_input_lastname);
         textInputUsername = rootView.findViewById(R.id.text_input_username);
         textInputPassword = rootView.findViewById(R.id.text_input_password);
-        textInputConfirmpassword = rootView.findViewById(R.id.text_input_confirmpassowrd);
+        textInputEmail = rootView.findViewById(R.id.text_input_email);
         register = rootView.findViewById(R.id.btnregister);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!validatefirstname() | !validatelasttname() | !validateusername() | !validatepassword() | !validateconfirmpassword()){
+                if (!validatefirstname() | !validatelasttname() | !validateusername() | !validatepassword() | !validateemail()){
                     return;
                 }
             }
@@ -93,13 +93,13 @@ public class RegisterFragment extends Fragment  {
             return true;
         }
     }
-    private boolean validateconfirmpassword(){
-        String confirmpasswordinput = textInputConfirmpassword.getEditText().getText().toString().toString().trim();
-        if (confirmpasswordinput.isEmpty()) {
-            textInputConfirmpassword.setError("Filed can't be empty");
+    private boolean validateemail(){
+        String emailinput = textInputEmail.getEditText().getText().toString().toString().trim();
+        if (emailinput.isEmpty()) {
+            textInputEmail.setError("Filed can't be empty");
             return false;
         }else{
-            textInputConfirmpassword.setError(null);
+            textInputEmail.setError(null);
             return true;
         }
     }
