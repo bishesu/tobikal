@@ -1,4 +1,4 @@
-package com.example.androidassignment;
+package com.example.androidassignment.Adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Aadapterlogin extends FragmentPagerAdapter{
+public class
+Aadapterlogin extends FragmentPagerAdapter{
     private List<Fragment> fragmentList = new ArrayList<>();
     private List<String> fragmenTitle = new ArrayList<>();
 

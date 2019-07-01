@@ -15,9 +15,14 @@
             android:icon="@drawable/login" />
 
         <item
-            android:title="about"
+            android:title="About"
             android:id="@+id/about_id"
             android:icon="@drawable/about" />
+
+        <item
+            android:title="Profile"
+            android:id="@+id/profile_id"
+            android:icon="@drawable/profile" />
     </group>
 
 </menu>
