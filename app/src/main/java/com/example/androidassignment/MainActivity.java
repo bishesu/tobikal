@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.profile_id:
                 Toast.makeText(this, "redirecting to profile", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(this, Profile.class);
+                startActivity(intent2);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

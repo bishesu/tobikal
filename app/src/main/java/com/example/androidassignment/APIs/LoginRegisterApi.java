@@ -1,6 +1,7 @@
 package com.example.androidassignment.APIs;
 
 import com.example.androidassignment.Model.RegestrationModel;
+import com.example.androidassignment.Model.UserModel;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -8,14 +9,14 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface LoginRegister {
+public interface LoginRegisterApi {
 
-    @POST("/addUser")
+    @POST("/register")
     Call<Void> addUser(@Body RegestrationModel regestrationModel);
 
     @FormUrlEncoded
-    @POST("getUser")
-    Call<String> getUser (@Field("username") String username, @Field("password") String password);
+    @POST("/login")
+    Call<UserModel> getUser (@Field("username") String username, @Field("password") String password);
 
 
 }
