@@ -134,9 +134,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             LoginRegisterApi loginRegister = RetrofitHelper.instance().create(LoginRegisterApi.class);
 
             Call<String> call = loginRegister.addUser(regestrationModel);
+
+                System.out.println("bises: "+regestrationModel.getFirstname());
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
+
+                    System.out.println("bises: "+response.body());
                     Toast.makeText(getActivity(), "registered successfully", LENGTH_SHORT).show();
                 }
 

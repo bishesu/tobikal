@@ -1,5 +1,6 @@
 package com.example.androidassignment;
 
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,11 +33,11 @@ ImageView img;
         super.onCreate(savedInstanceState);
         instance();
         setContentView(R.layout.activity_profile);
-
-        String id="5d11b0429cb2204bbc01adfb";
-
+        SharedPreferences preferences=this.getSharedPreferences("tokenstore",0);
+        String id=preferences.getString("userId",null);
+        System.out.println("bises iddadas: "+id);
         recyclerView=findViewById(R.id.gallery);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Profile.this));
+        recyclerView.setLayoutManager(new GridLayoutManager(Profile.this,3));
         System.out.println("id"+id);
         Call<List<Cell>> calla=getImage.getImages(id);
         calla.enqueue(new Callback<List<Cell>>() {
@@ -47,9 +48,9 @@ ImageView img;
                     return;
                 }
 
-                List<Cell> tokens=response.body();
+                List<Cell> images=response.body();
                 System.out.println("thegnachos"+response.body());
-                recyclerView.setAdapter(new ProfileGalleryAdapter(getApplicationContext(),tokens));
+                recyclerView.setAdapter(new ProfileGalleryAdapter(getApplicationContext(),images));
             }
 
             @Override

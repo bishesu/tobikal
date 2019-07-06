@@ -93,7 +93,10 @@ Button button;
                                     SharedPreferences preferences=getActivity().getSharedPreferences("tokenstore",0);
                                     SharedPreferences.Editor editor= preferences.edit();
                                     editor.putString("token",token.getToken());
+                                    editor.putString("userId",token.getId());
                                     editor.commit();
+
+                                    System.out.println("bises id: "+token.getId());
                                     Intent intent1=new Intent(getActivity(),MainActivity.class);
                                     startActivity(intent1);
 
