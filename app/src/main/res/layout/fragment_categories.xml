@@ -53,7 +53,7 @@
                     android:id="@+id/fullnamefeedback"
                     android:ems="10"
                     android:inputType="text"
-                    android:digits="abcdefghijklmnopqrstuvwxy"
+                    android:digits="abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ "
                     android:textSize="20dp"/>
 
 
@@ -78,8 +78,8 @@
                     android:id="@+id/emailfeedback"
 
                     android:ems="10"
-                    android:inputType="text"
-                    android:digits="abcdefghijklmnopqrstuvwxy"
+                    android:inputType="textEmailAddress"
+
                     android:textSize="20dp"/>
 
 
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Contact"
                     android:ems="10"
-                    android:inputType="text"
+                   android:inputType="phone"
                     android:id="@+id/contactfeed"
 
                     android:textSize="20dp"/>
@@ -131,7 +131,6 @@
                     android:id="@+id/description"
 
                     android:ems="10"
-                    android:inputType="textPassword"
                     android:textSize="20dp"/>
 
 

@@ -2,18 +2,18 @@ package com.example.androidassignment.Model;
 
 public class RegestrationModel {
 private String firstname;
-private String Lastname;
+private String lastname;
 private String email;
 private String username;
 private String password;
 
-    public RegestrationModel(String firstname, String lastname, String email, String username, String password) {
-        this.firstname = firstname;
-        Lastname = lastname;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-    }
+//    public RegestrationModel(String firstname, String lastname, String email, String username, String password) {
+//        this.firstname = firstname;
+//       this. lastname = lastname;
+//        this.email = email;
+//        this.username = username;
+//        this.password = password;
+//    }
 
     public String getFirstname() {
         return firstname;
@@ -24,11 +24,11 @@ private String password;
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        lastname = lastname;
     }
 
     public String getEmail() {

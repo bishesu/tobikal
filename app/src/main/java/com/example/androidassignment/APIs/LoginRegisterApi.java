@@ -11,9 +11,9 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface LoginRegisterApi {
-
+    @FormUrlEncoded
     @POST("/register")
-    Call<String> addUser(@Body RegestrationModel regestrationModel);
+    Call<String> addUser(@Field("firstname") String firstname,@Field("lastname") String lastname, @Field("email") String email, @Field("username") String username, @Field("password") String password);
 
     @FormUrlEncoded
     @POST("/login")

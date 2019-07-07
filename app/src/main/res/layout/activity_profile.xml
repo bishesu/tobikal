@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile">
+
 
     <!--<android.support.v7.widget.Toolbar-->
         <!--android:id="@+id/toolbar"-->
@@ -36,12 +38,29 @@
            </RelativeLayout>
         
         <TextView
+            android:id="@+id/tvusernameprofile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imguser"
             android:layout_centerHorizontal="true"
             android:text="username is shown here"
             android:textSize="32dp"/>
+        <TextView
+            android:id="@+id/tvfullnameprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvusernameprofile"
+            android:hint="user first name is shown here"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/tvcontactprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvfullnameprofile"
+            android:hint="user email is shown here"
+            android:textSize="20dp"/>
+
+
 
     </RelativeLayout>
 

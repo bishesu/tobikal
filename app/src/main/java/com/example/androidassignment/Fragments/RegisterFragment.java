@@ -123,19 +123,19 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
 
             case R.id.btnregister:
-//        if (!validatefirstname() | !validatelasttname() | !validateusername() | !validatepassword() | !validateemail()) {
-            RegestrationModel regestrationModel = new RegestrationModel(
-                    textInputFirstname.getText().toString(),
-                    textInputLastname.getText().toString(),
-                    textInputEmail.getText().toString(),
-                    textInputUsername.getText().toString(),
-                    textInputPassword.getText().toString()
-            );
+
+                String fname = textInputFirstname.getText().toString();
+                String lname = textInputLastname.getText().toString();
+                String email = textInputEmail.getText().toString();
+                String username = textInputUsername.getText().toString();
+                String password = textInputPassword.getText().toString();
+
+                RegestrationModel model = new RegestrationModel();
             LoginRegisterApi loginRegister = RetrofitHelper.instance().create(LoginRegisterApi.class);
 
-            Call<String> call = loginRegister.addUser(regestrationModel);
+            Call<String> call = loginRegister.addUser(fname,lname,email,username,password);
 
-                System.out.println("bises: "+regestrationModel.getFirstname());
+                //System.out.println("bises: "+regestrationModel.getFirstname());
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {

@@ -164,39 +164,7 @@ android:layout_below="@+id/text_input_password"
 
         </android.support.design.widget.TextInputLayout>
 
-<!--<RadioGroup-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal"-->
-    <!--android:paddingLeft="20dp"-->
-    <!--android:paddingRight="20dp"-->
-    <!--android:layout_marginTop="15dp"-->
-    <!--android:layout_below="@+id/text_input_email"-->
-    <!--android:id="@+id/radiogender"-->
-    <!--&gt;-->
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Gender"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:textSize="20dp"/>-->
-    <!--<RadioButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Male"-->
-        <!--android:textSize="20dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--/>-->
-    <!--<RadioButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:text="Female"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:textSize="20dp"-->
-        <!--/>-->
-<!--</RadioGroup>-->
+
 
         <Button
             android:layout_width="200dp"
