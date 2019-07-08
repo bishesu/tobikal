@@ -3,11 +3,13 @@ package com.example.androidassignment.Model;
 public class Cell {
 
     private String titleimg;
-    private Integer img;
+    private String imagename;
+    private String description;
 
-    public Cell(String titleimg, Integer img) {
+    public Cell(String titleimg, String imagename, String description) {
         this.titleimg = titleimg;
-        this.img = img;
+        this.imagename = imagename;
+        this.description = description;
     }
 
     public String getTitleimg() {
@@ -18,11 +20,19 @@ public class Cell {
         this.titleimg = titleimg;
     }
 
-    public Integer getImg() {
-        return img;
+    public String getImagename() {
+        return imagename;
     }
 
-    public void setImg(Integer img) {
-        this.img = img;
+    public void setImagename(String imagename) {
+        this.imagename = imagename;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

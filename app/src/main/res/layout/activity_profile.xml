@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,14 +9,24 @@
     tools:context=".Profile">
 
 
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="?attr/actionBarSize"-->
-        <!--android:background="@color/toolbar"-->
-        <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></android.support.v7.widget.Toolbar>-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_light"
+            android:text="UPLOAD"
+            android:id="@+id/btnupload"
+            android:textColor="@android:color/white"/>
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
+        android:layout_below="@+id/toolbar"
         android:id="@+id/recv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -46,18 +57,18 @@
             android:text="username is shown here"
             android:textSize="32dp"/>
         <TextView
-            android:id="@+id/tvfullnameprofile"
+            android:id="@+id/tvemailprofile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvusernameprofile"
-            android:hint="user first name is shown here"
+            android:hint="user email is shown here"
             android:textSize="20dp"/>
         <TextView
             android:id="@+id/tvcontactprofile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvfullnameprofile"
-            android:hint="user email is shown here"
+            android:layout_below="@+id/tvemailprofile"
+            android:hint="user contact is shown here"
             android:textSize="20dp"/>
 
 

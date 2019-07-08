@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.androidassignment.APIs.FeedbackApi;
 import com.example.androidassignment.Model.FeedbackModel;
 import com.example.androidassignment.R;
+import com.example.androidassignment.Retrofit.RetrofitHelper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +28,7 @@ private EditText email;
 private EditText contact;
 private EditText description;
 Button btnfeedback;
-FeedbackApi feedbackApi;
+//FeedbackApi feedbackApi;
 
     public CategoriesFragment() {
         // Required empty public constructor
@@ -48,11 +49,12 @@ FeedbackApi feedbackApi;
         btnfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FeedbackApi feedbackApi= RetrofitHelper.instance().create(FeedbackApi.class);
                 Call<String> call=feedbackApi.sendfeedback(new FeedbackModel(fullname.getText().toString()
                         ,description.getText().toString()
                         ,email.getText().toString()
                         ,contact.getText().toString()));
-                System.out.println("lllll"+fullname.getText().toString());
+//                System.out.println("lllll"+fullname.getText().toString());
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
