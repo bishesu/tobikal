@@ -1,6 +1,7 @@
 package com.example.androidassignment.Fragments;
 
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +26,7 @@ import com.example.androidassignment.Model.Token;
 import com.example.androidassignment.Model.UserModel;
 import com.example.androidassignment.R;
 import com.example.androidassignment.Retrofit.RetrofitHelper;
+import com.example.androidassignment.notification.notification;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,8 +38,12 @@ import retrofit2.Response;
  */
 public class LoginFragment extends Fragment implements View.OnClickListener {
     private EditText textInputUsernamelogin;
+    private NotificationManagerCompat notificationManagerCompat;
     private  EditText textInputPasswordlogin;
     private TextView loginintent;
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 Button button;
     String usernameinput;
     String passwordinput;
@@ -45,6 +53,9 @@ Button button;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+        notificationManagerCompat = NotificationManagerCompat.from(getActivity());
+        notification channel = new notification(getActivity());
+        channel.notification();
         textInputUsernamelogin = rootView.findViewById(R.id.usernamelogin);
         textInputPasswordlogin = rootView.findViewById(R.id.passwordlogin);
         button = rootView.findViewById(R.id.btnlogin);
@@ -99,6 +110,8 @@ Button button;
                                     System.out.println("bises id: "+token.getId());
                                     Intent intent1=new Intent(getActivity(),MainActivity.class);
                                     startActivity(intent1);
+                                    DispalyNotification();
+                                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
 
                                 }
 
@@ -123,5 +136,15 @@ Button button;
                 break;
         }
 
+    }
+
+    private void DispalyNotification() {
+        Notification notification = new NotificationCompat.Builder(getActivity(), com.example.androidassignment.notification.notification.Channel_1)
+                .setSmallIcon(R.drawable.ic_tap_and_play_black_24dp)
+                .setContentTitle("Logged in Successfully")
+                .setContentText("You have logged in successfully")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManagerCompat.notify(1,notification);
     }
 }

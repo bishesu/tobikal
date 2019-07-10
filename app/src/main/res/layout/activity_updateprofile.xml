@@ -29,7 +29,7 @@
         android:layout_below="@+id/tvupdateprofile"
         android:layout_height="wrap_content"
         android:id="@+id/imgviewupload"
-        android:src="@drawable/imagee"
+
         android:layout_marginLeft="30dp" />
     </android.support.v7.widget.CardView>
 

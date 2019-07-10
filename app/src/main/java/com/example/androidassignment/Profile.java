@@ -20,7 +20,6 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.androidassignment.APIs.GetImage;
-import com.example.androidassignment.APIs.Getuserinfo;
 import com.example.androidassignment.Adapter.ProfileGalleryAdapter;
 import com.example.androidassignment.Model.Cell;
 import com.example.androidassignment.Model.Token;
@@ -33,8 +32,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    Toolbar toolbar;
+public class Profile extends AppCompatActivity {
     NavigationView navigationView;
     MenuItem menuItem1;
     MenuItem menuItem2;
@@ -51,10 +49,9 @@ ImageView img;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         instance();
-        toolbar=findViewById(R.id.toolbar);
+
         navigationView=findViewById(R.id.navigation_view);
-        menuItem1=findViewById(R.id.updateprofile);
-        menuItem2=findViewById(R.id.logout);
+
         username=findViewById(R.id.tvusernameprofile);
         email=findViewById(R.id.tvemailprofile);
         contact=findViewById(R.id.tvcontactprofile);
@@ -106,20 +103,5 @@ ImageView img;
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        int id = menuItem.getItemId();
-        switch (id){
-            case R.id.updateprofile:
-                Intent intent = new Intent(Profile.this,Updateprofile.class);
-                startActivity(intent);
-                break;
 
-            case R.id.logout:
-                Intent intent1 = new Intent(Profile.this,LoginRegister.class);
-                startActivity(intent1);
-                break;
-        }
-        return false;
-    }
 }
