@@ -50,22 +50,31 @@ Button btnfeedback;
             @Override
             public void onClick(View v) {
                 FeedbackApi feedbackApi= RetrofitHelper.instance().create(FeedbackApi.class);
-                Call<String> call=feedbackApi.sendfeedback(new FeedbackModel(fullname.getText().toString()
-                        ,description.getText().toString()
-                        ,email.getText().toString()
-                        ,contact.getText().toString()));
-//                System.out.println("lllll"+fullname.getText().toString());
-                call.enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        Toast.makeText(getActivity(), response.body(), Toast.LENGTH_SHORT).show();
-                    }
+                String fname= fullname.getText().toString();
+                String mail = email.getText().toString();
+                String desc = description.getText().toString();
+                String cont = contact.getText().toString();
 
-                    @Override
-                    public void onFailure(Call<String> call, Throwable t) {
-                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                    }
-                });
+FeedbackModel feedbackModel = new FeedbackModel(fname, mail, desc, cont);
+Call<String> feedbackcall = feedbackApi.sendfeedback(fname,mail,desc,cont);
+
+feedbackcall.enqueue(new Callback<String>() {
+    @Override
+    public void onResponse(Call<String> call, Response<String> response) {
+        if(response.isSuccessful()){
+            Toast.makeText(getContext(),response.body(),Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getContext(),"fail",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onFailure(Call<String> call, Throwable t) {
+        Toast.makeText(getContext(), "failed", Toast.LENGTH_SHORT).show();
+
+    }
+});
+
             }
         });
                 return view;
