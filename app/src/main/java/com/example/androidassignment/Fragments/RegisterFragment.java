@@ -1,8 +1,10 @@
 package com.example.androidassignment.Fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -141,6 +143,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                 public void onResponse(Call<String> call, Response<String> response) {
 
                     System.out.println("bises: "+response.body());
+                    Vibrator   vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                     Toast.makeText(getActivity(), "registered successfully", LENGTH_SHORT).show();
                 }
 
