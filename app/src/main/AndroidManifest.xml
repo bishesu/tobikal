@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Updateprofile"></activity>
+        <activity android:name=".AfterclickingImage"></activity>
+        <activity android:name=".Updateprofile" />
         <activity android:name=".Uploadimage" />
         <activity android:name=".Profile" />
         <activity android:name=".LoginRegister" />
