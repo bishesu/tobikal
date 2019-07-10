@@ -17,8 +17,7 @@
         android:layout_marginStart="62dp"
         android:layout_marginLeft="62dp"
         android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        android:margin_left="50dp" />
+        android:layout_marginRight="61dp"/>
 
     <TextView
     android:id="@+id/descriptionforimageafterclick"

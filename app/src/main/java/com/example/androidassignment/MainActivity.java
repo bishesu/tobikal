@@ -19,7 +19,7 @@ import com.example.androidassignment.Adapter.AdapterMainActivity;
 import com.example.androidassignment.Fragments.CategoriesFragment;
 import com.example.androidassignment.Fragments.Shufflefragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Shufflefragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -98,8 +98,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }

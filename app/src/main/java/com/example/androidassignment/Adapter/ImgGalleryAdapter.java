@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.androidassignment.AfterclickingImage;
 import com.example.androidassignment.Model.ImgModel;
 import com.example.androidassignment.R;
 import com.example.androidassignment.Retrofit.RetrofitHelper;
@@ -31,7 +32,7 @@ public class ImgGalleryAdapter extends RecyclerView.Adapter<ImgGalleryAdapter.Ho
     @NonNull
     @Override
     public ImgGalleryAdapter.Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate((R.layout.design_index,viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.design_index,viewGroup,false);
         return  new Holder(view);
     }
 
@@ -47,7 +48,10 @@ String path= Url.Base_URL+"images"+ imgModel.getImagename();
             public void onClick(View v) {
                 String url = Url.Base_URL+"images"+imgModel.getImagename();
 
-                Intent intent = new Intent(context, )
+                Intent intent = new Intent(context, AfterclickingImage.class);
+                intent.putExtra("Description",imgModel.getDescription());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
     }
@@ -60,7 +64,7 @@ String path= Url.Base_URL+"images"+ imgModel.getImagename();
         private ImageView imgviewupload;
         public Holder(@NonNull View itemView) {
             super(itemView);
-            descriptionforimage = itemView.findViewById(R.id.descriptionforimage);
+
             imgviewupload = itemView.findViewById(R.id.imgviewupload);
 
         }
@@ -68,4 +72,4 @@ String path= Url.Base_URL+"images"+ imgModel.getImagename();
 
 
     }
-}
+
