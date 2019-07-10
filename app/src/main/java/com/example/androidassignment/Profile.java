@@ -23,6 +23,7 @@ import com.example.androidassignment.APIs.GetImage;
 import com.example.androidassignment.Adapter.ProfileGalleryAdapter;
 import com.example.androidassignment.Model.Cell;
 import com.example.androidassignment.Model.Token;
+import com.example.androidassignment.Model.UserResponse;
 
 import java.util.List;
 
@@ -32,10 +33,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Profile extends AppCompatActivity {
-    NavigationView navigationView;
-    MenuItem menuItem1;
-    MenuItem menuItem2;
+public class Profile extends AppCompatActivity  {
+//    NavigationView navigationView;
+//    MenuItem menuItem1;
+//    MenuItem menuItem2;
 
 private RecyclerView recyclerView;
  TextView username;
@@ -51,56 +52,64 @@ ImageView img;
         super.onCreate(savedInstanceState);
         instance();
 
-        navigationView=findViewById(R.id.navigation_view);
+//        navigationView=findViewById(R.id.navigation_view);
 
         username=findViewById(R.id.tvusernameprofile);
         email=findViewById(R.id.tvemailprofile);
         contact=findViewById(R.id.tvcontactprofile);
         upload=findViewById(R.id.btnupload);
-        upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, Uploadimage.class);
-                startActivity(intent);
-            }
-        });
-        update=findViewById(R.id.btnupdateprofile);
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(Profile.this, Updateprofile.class );
-            }
-        });
+//        upload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////               Intent intent = new Intent(Profile.this, Uploadimage.class);
+////               startActivity(intent);
+////                Toast.makeText(Profile.this, "pass", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        update=findViewById(R.id.btnupdateprofile);
+//        update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent1 = new Intent(Profile.this, Updateprofile.class );
+//                startActivity(intent1);
+//            }
+//        });
+
 
 //        navigationView.setNavigationItemSelectedListener(this);
 
         setContentView(R.layout.activity_profile);
         SharedPreferences preferences=this.getSharedPreferences("tokenstore",0);
         String userid=preferences.getString("userId",null);
+        String token = preferences.getString("token","");
+        Toast.makeText(Profile.this,token,Toast.LENGTH_LONG).show();
 
         recyclerView=findViewById(R.id.gallery);
 
       Log.d("usreid",userid);
-        Call<List<Cell>> calla=getImage.getImages(userid);
-
-        calla.enqueue(new Callback<List<Cell>>() {
+        Call<UserResponse> calla=getImage.profileDetail(token);
+        calla.enqueue(new Callback<UserResponse>() {
             @Override
-            public void onResponse(Call<List<Cell>> call, Response<List<Cell>> response) {
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                if(response.isSuccessful()){
+                    String name = response.body().getData().getFirstname();
+                   String lname = response.body().getData().getLastname();
+                    Toast.makeText(Profile.this,response.body().getData().getEmail(),Toast.LENGTH_LONG).show();
+//                   username.setText(name);
 
-                List<Cell> images=response.body();
-
-                recyclerView.setAdapter(new ProfileGalleryAdapter(getApplicationContext(),images));
-                recyclerView.setLayoutManager(new GridLayoutManager(Profile.this,2));
-
+                }else{
+                    Toast.makeText(Profile.this,"fail",Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<List<Cell>> call, Throwable t) {
+            public void onFailure(Call<UserResponse> call, Throwable t) {
 
-                Toast.makeText(Profile.this, "Errot "+t.getMessage(), Toast.LENGTH_SHORT).show();
-                System.out.println("nachos:"+t.getMessage());
             }
         });
+
+
+
     }
 
     private void instance(){

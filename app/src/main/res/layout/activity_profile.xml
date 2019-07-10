@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@android:color/holo_red_light"
-            android:text="UPLOAD"
+            android:text="Update"
             android:id="@+id/btnupdateprofile"
             android:textColor="@android:color/white"
             android:layout_gravity="right"
