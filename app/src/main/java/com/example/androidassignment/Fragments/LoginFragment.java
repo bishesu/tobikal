@@ -50,7 +50,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private TextView loginintent;
 
     SharedPreferences preferences;
+    SharedPreferences preferences1;
+    SharedPreferences.Editor editor1;
     SharedPreferences.Editor editor;
+    Boolean isloggedin=false;
 Button button;
     String usernameinput;
     String passwordinput;
@@ -63,6 +66,9 @@ Button button;
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
         notificationManagerCompat = NotificationManagerCompat.from(getActivity());
         notification channel = new notification(getActivity());
+
+        preferences1=getActivity().getSharedPreferences("User",0);
+        editor1=preferences1.edit();
         channel.notification();
         textInputUsernamelogin = rootView.findViewById(R.id.usernamelogin);
         textInputPasswordlogin = rootView.findViewById(R.id.passwordlogin);
@@ -114,13 +120,17 @@ Button button;
                                     SharedPreferences.Editor editor= preferences.edit();
                                     editor.putString("token",token.getToken());
                                     editor.putString("userId",token.getId());
+//                                    editor.putBoolean("isloggedin",false);
                                     editor.commit();
 
                                     System.out.println("bises id: "+token.getId());
                                     Intent intent1=new Intent(getActivity(),MainActivity.class);
+                                    isloggedin=true;
+                                    editor1.putBoolean("isloggedin",isloggedin).commit();
                                     startActivity(intent1);
                                     DispalyNotification();
                                     Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+
 
                                 }
 

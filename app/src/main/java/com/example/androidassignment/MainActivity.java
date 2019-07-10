@@ -2,6 +2,7 @@ package com.example.androidassignment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private float dataAceelo;
     private float dataAceelocurrent;
     private float dataAceelolast;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    boolean isloggedin;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapterMainActivity.addFragment(new CategoriesFragment(), "categories");
         adapterMainActivity.addFragment(new Shufflefragment(), "shuffle");
 
-
+        shake();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -82,9 +88,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = menuItem.getItemId();
         switch (id) {
             case R.id.login_id:
-                Toast.makeText(this, " redirecting to login/register", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, LoginRegister.class);
+                Intent intent=new Intent(MainActivity.this,LoginRegister.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                sharedPreferences=getSharedPreferences("User",0);
+                editor=sharedPreferences.edit();
+                editor.putBoolean("isloggedin",false).commit();
                 startActivity(intent);
+                finish();
+
                 break;
             case R.id.about_id:
                 Toast.makeText(this, " redirecting to about", Toast.LENGTH_SHORT).show();
@@ -101,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "redirecting to profile", Toast.LENGTH_SHORT).show();
                 Intent intent2 = new Intent(this, Profile.class);
                 startActivity(intent2);
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
