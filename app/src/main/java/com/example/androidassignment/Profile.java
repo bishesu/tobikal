@@ -43,6 +43,7 @@ private RecyclerView recyclerView;
  TextView contact;
 GetImage getImage;
 Button upload;
+Button update;
 Cell cell;
 ImageView img;
     @Override
@@ -59,8 +60,15 @@ ImageView img;
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, Updateprofile.class);
+                Intent intent = new Intent(Profile.this, Uploadimage.class);
                 startActivity(intent);
+            }
+        });
+        update=findViewById(R.id.btnupdateprofile);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(Profile.this, Updateprofile.class );
             }
         });
 
