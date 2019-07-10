@@ -1,6 +1,11 @@
 package com.example.androidassignment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    SensorManager sensorManager;
+    private float dataAceelo;
+    private float dataAceelocurrent;
+    private float dataAceelolast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         viewPager = findViewById(R.id.aview_pager);
         tabLayout = findViewById(R.id.atabId);
-
+        shake();
         AdapterMainActivity adapterMainActivity = new AdapterMainActivity(getSupportFragmentManager());
         adapterMainActivity.addFragment(new CategoriesFragment(), "categories");
         adapterMainActivity.addFragment(new Shufflefragment(), "shuffle");
@@ -95,6 +104,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void shake(){
+        sensorManager=(SensorManager)getSystemService(Context.SENSOR_SERVICE);
+        Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        SensorEventListener accellistener = new SensorEventListener() {
+
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                float[] values=event.values;
+                float xaxis=values[0];
+                float yaxis=values[1];
+                float zaxis=values[2];
+                dataAceelolast=dataAceelocurrent;
+                dataAceelocurrent=(float)Math.sqrt((double) (xaxis*xaxis+yaxis*yaxis+zaxis*zaxis));
+                float delta=dataAceelocurrent-dataAceelolast;
+                dataAceelo=dataAceelo*0.9f+delta;
+                if(dataAceelo>10) {
+                    Intent intent=new Intent(MainActivity.this,Profile.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+            }
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            }
+        };
+        if (sensor == null) {
+            Toast.makeText(this, "No Accelometer sensor detected", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            sensorManager.registerListener(accellistener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        }
     }
 
 

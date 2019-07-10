@@ -144,6 +144,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
                     System.out.println("bises: "+response.body());
                     Vibrator   vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibrator.vibrate(2000);
                     Toast.makeText(getActivity(), "registered successfully", LENGTH_SHORT).show();
                 }
 

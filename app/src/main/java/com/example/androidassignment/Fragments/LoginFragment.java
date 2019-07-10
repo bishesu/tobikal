@@ -5,6 +5,10 @@ import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
@@ -14,6 +18,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,6 +37,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.SENSOR_SERVICE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +55,7 @@ Button button;
     String usernameinput;
     String passwordinput;
 
+    SensorManager sensorManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +70,7 @@ Button button;
         loginintent=rootView.findViewById(R.id.intenttv);
         loginintent.setOnClickListener(this);
         button.setOnClickListener(this);
+        proximity();
         return rootView;
     }
     private boolean validateusernamelogin(){
@@ -146,5 +155,42 @@ Button button;
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
         notificationManagerCompat.notify(1,notification);
+    }
+
+    public void proximity()
+    {
+        sensorManager=(SensorManager)getActivity().getSystemService(SENSOR_SERVICE);
+        Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        if (sensor == null)
+        {
+            Toast.makeText(getActivity(), "No sensor detected", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getActivity(), "Sensor Kicking in .....", Toast.LENGTH_SHORT).show();
+        }
+
+        SensorEventListener proximityListener=new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+                if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                    if (event.values[0] == 0) {
+                        params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+                        params.screenBrightness = 0;
+                        getActivity().getWindow().setAttributes(params);
+                    } else {
+                        params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+                        params.screenBrightness = -1f;
+                        getActivity().getWindow().setAttributes(params);
+                    }
+                }
+            }
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        sensorManager.registerListener(proximityListener,sensor,SensorManager.SENSOR_DELAY_FASTEST);
     }
 }
