@@ -8,7 +8,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/about"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -16,7 +16,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Aboutus"></activity>
         <activity android:name=".AfterclickingImage" />
-        <activity android:name=".Updateprofile" />
         <activity android:name=".Uploadimage" />
         <activity android:name=".Profile" />
         <activity android:name=".LoginRegister" />

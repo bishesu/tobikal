@@ -43,17 +43,20 @@ final ImgModel imgModel = imgModels.get(i);
 
 String path= Url.Base_URL+"images/"+ imgModel.getImagename();
         Picasso.get().load(path).into(holder.homeImage);
-//        holder.imgviewupload.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String url = Url.Base_URL+"images"+imgModel.getImagename();
-//
-//                Intent intent = new Intent(context, AfterclickingImage.class);
-//                intent.putExtra("Description",imgModel.getDescription());
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                context.startActivity(intent);
-//            }
-//        });
+        System.out.println(Url.Base_URL+"images/"+ imgModel.getImagename());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = Url.Base_URL+"images"+imgModel.getImagename();
+
+                Intent intent = new Intent(context, AfterclickingImage.class);
+                intent.putExtra("Description",imgModel.getDescription());
+                intent.putExtra("image",url);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

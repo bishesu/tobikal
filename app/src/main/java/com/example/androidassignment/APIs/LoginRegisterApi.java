@@ -9,6 +9,7 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface LoginRegisterApi {
     @FormUrlEncoded
@@ -19,5 +20,8 @@ public interface LoginRegisterApi {
     @POST("/login")
     Call<Token> getUser (@Field("username") String username, @Field("password") String password);
 
+    @FormUrlEncoded
+    @POST("updateprofile/{id}")
+    Call<Void> updateProfile(@Path("id") String id,@Body UserModel userModel);
 
 }

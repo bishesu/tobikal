@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
 
 
@@ -16,17 +20,11 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/toolbar"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update Profile"
-            android:textSize="40dp"
-            android:id="@+id/tvupdateprofile"
-            android:textStyle="bold"
-            android:textColor="@color/combo1"
-            android:textAlignment="center"/>
 
     </android.support.v7.widget.Toolbar>
+
+
+
 
     <RelativeLayout
         android:layout_below="@+id/toolbar"
@@ -78,7 +76,7 @@
          android:hint="first name"
          android:gravity="center"
          android:textColorHint="@android:color/black"
-         android:id="@+id/firstnameupdateptrofile"
+         android:id="@+id/firstnameprofile"
          android:ems="10"
          android:inputType="text"
          android:textSize="20dp"/>
@@ -89,27 +87,15 @@
          android:layout_height="wrap_content"
          android:hint="last name"
          android:gravity="center"
-         android:layout_below="@+id/firstnameupdateptrofile"
+         android:layout_below="@+id/firstnameprofile"
 
          android:textColorHint="@android:color/black"
-         android:id="@+id/lastnameupdateptrofile"
+         android:id="@+id/lastnameptrofile"
          android:ems="10"
          android:inputType="text"
          android:textSize="20dp"/>
 
-     <EditText
-         android:layout_width="400dp"
-         android:layout_marginLeft="5dp"
-         android:layout_height="wrap_content"
-         android:hint="email"
-         android:gravity="center"
-         android:layout_below="@+id/lastnameupdateptrofile"
 
-         android:textColorHint="@android:color/black"
-         android:id="@+id/emailupdateptrofile"
-         android:ems="10"
-         android:inputType="text"
-         android:textSize="20dp"/>
 
      <EditText
          android:layout_width="400dp"
@@ -117,19 +103,33 @@
          android:layout_height="wrap_content"
          android:hint="contact"
          android:gravity="center"
-         android:layout_below="@+id/emailupdateptrofile"
+         android:layout_below="@+id/lastnameptrofile"
 
          android:textColorHint="@android:color/black"
-         android:id="@+id/contactupdateptrofile"
+         android:id="@+id/contactprofile"
+         android:ems="10"
+         android:inputType="text"
+         android:textSize="20dp"/>
+
+     <EditText
+         android:layout_width="400dp"
+         android:layout_marginLeft="5dp"
+         android:layout_height="wrap_content"
+         android:hint="id"
+         android:gravity="center"
+         android:layout_below="@+id/contactprofile"
+        android:visibility = "invisible"
+         android:textColorHint="@android:color/black"
+         android:id="@+id/id"
          android:ems="10"
          android:inputType="text"
          android:textSize="20dp"/>
 
      <Button
-         android:id="@+id/btnupdateuserprofile"
+         android:id="@+id/btnupdateprofile"
          android:layout_width="200dp"
          android:layout_height="wrap_content"
-         android:layout_below="@+id/contactupdateptrofile"
+         android:layout_below="@+id/contactprofile"
          android:layout_centerHorizontal="true"
          android:layout_marginTop="40dp"
          android:background="@drawable/button_rounded"
@@ -137,13 +137,16 @@
          android:textColor="@color/white"
          android:textSize="22dp" />
 
+
      
      
  </RelativeLayout>
+
+    </RelativeLayout>
 
     
 
 
 
 
-</RelativeLayout>
+</ScrollView>
