@@ -42,8 +42,10 @@ private RecyclerView recyclerView;
  TextView username;
  TextView email;
  TextView contact;
+ TextView lastname;
+ TextView firstname;
 GetImage getImage;
-Button upload;
+
 Button update;
 Cell cell;
 ImageView img;
@@ -54,10 +56,13 @@ ImageView img;
 
 //        navigationView=findViewById(R.id.navigation_view);
 
+
         username=findViewById(R.id.tvusernameprofile);
-        email=findViewById(R.id.tvemailprofile);
-        contact=findViewById(R.id.tvcontactprofile);
-        upload=findViewById(R.id.btnupload);
+        firstname = findViewById(R.id.firstnameupdateptrofile);
+        lastname = findViewById(R.id.lastnameupdateptrofile);
+        email=findViewById(R.id.emailupdateptrofile);
+        contact=findViewById(R.id.contactupdateptrofile);
+        update=findViewById(R.id.btnupdateuserprofile);
 //        upload.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -84,7 +89,7 @@ ImageView img;
         String token = preferences.getString("token","");
         Toast.makeText(Profile.this,token,Toast.LENGTH_LONG).show();
 
-        recyclerView=findViewById(R.id.gallery);
+//        recyclerView=findViewById(R.id.gallery);
 
       Log.d("usreid",userid);
         Call<UserResponse> calla=getImage.profileDetail(token);
@@ -94,8 +99,10 @@ ImageView img;
                 if(response.isSuccessful()){
                     String name = response.body().getData().getFirstname();
                    String lname = response.body().getData().getLastname();
+                   String email = response.body().getData().getEmail();
                     Toast.makeText(Profile.this,response.body().getData().getEmail(),Toast.LENGTH_LONG).show();
-//                   username.setText(name);
+
+//                   username.setText(email);
 
                 }else{
                     Toast.makeText(Profile.this,"fail",Toast.LENGTH_LONG).show();

@@ -1,6 +1,7 @@
 package com.example.androidassignment.Model;
 
 public class ImgModel {
+    private String _id;
     private String imagename;
     private String description;
     private String userid;
@@ -9,6 +10,10 @@ public class ImgModel {
         this.imagename = imagename;
         this.description = description;
         this.userid = userid;
+    }
+
+    public String get_id() {
+        return _id;
     }
 
     public String getImagename() {

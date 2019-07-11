@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Aboutus">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:textSize="40dp"
+        android:id="@+id/tvAboutus"
+        android:textStyle="bold"
+        android:textColor="@color/combo1"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="65dp"
+        android:padding="20dp"
+        android:src="@drawable/logo" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aboutus"
+        android:layout_below="@+id/logo"
+        android:gravity="center|start"
+        android:text="The project is an attempt to build a mobile application in conjunction with a web application that aims to promote the local photographers of the country. The scene in Nepal is that there are a lot of talented photographers, but they don’t have a dedicated place to share their work, yes there are photographers who share their photos in the social sites like Facebook, Instagram and twitter but it has its limits. The social sites don’t provide exposure to the artist as a dedicated application would furthermore promoting and advertising your work in these sites are quite costly and have very small returns. Therefore, the project aims to create an app that can be the central hub for all the local photographers of the country."
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        />
+
+
+</RelativeLayout>

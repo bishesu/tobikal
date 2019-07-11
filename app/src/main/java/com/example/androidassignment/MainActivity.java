@@ -50,8 +50,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabLayout = findViewById(R.id.atabId);
         shake();
         AdapterMainActivity adapterMainActivity = new AdapterMainActivity(getSupportFragmentManager());
-        adapterMainActivity.addFragment(new CategoriesFragment(), "categories");
-        adapterMainActivity.addFragment(new Shufflefragment(), "shuffle");
+
+
+        adapterMainActivity.addFragment(new Shufflefragment(), "Trending Images");
+        adapterMainActivity.addFragment(new CategoriesFragment(), "Feedback");
 
         shake();
         toolbar = findViewById(R.id.toolbar);
@@ -99,7 +101,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.about_id:
+
                 Toast.makeText(this, " redirecting to about", Toast.LENGTH_SHORT).show();
+                Intent intent3 = new Intent(this,Aboutus.class);
+                startActivity(intent3);
 
                 break;
             case R.id.home_id:
@@ -135,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 float delta=dataAceelocurrent-dataAceelolast;
                 dataAceelo=dataAceelo*0.9f+delta;
                 if(dataAceelo>10) {
-                    Intent intent=new Intent(MainActivity.this,Profile.class);
+                    Intent intent=new Intent(MainActivity.this,Aboutus.class);
                     startActivity(intent);
                     finish();
 

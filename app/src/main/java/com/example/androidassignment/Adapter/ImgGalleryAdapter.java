@@ -39,21 +39,21 @@ public class ImgGalleryAdapter extends RecyclerView.Adapter<ImgGalleryAdapter.Ho
     @Override
     public void onBindViewHolder(@NonNull ImgGalleryAdapter.Holder holder, int i) {
 final ImgModel imgModel = imgModels.get(i);
-holder.descriptionforimage.setText(imgModel.getDescription());
+//holder.descriptionforimage.setText(imgModel.getDescription());
 
-String path= Url.Base_URL+"images"+ imgModel.getImagename();
-        Picasso.get().load(path).into(holder.imgviewupload);
-        holder.imgviewupload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = Url.Base_URL+"images"+imgModel.getImagename();
-
-                Intent intent = new Intent(context, AfterclickingImage.class);
-                intent.putExtra("Description",imgModel.getDescription());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
+String path= Url.Base_URL+"images/"+ imgModel.getImagename();
+        Picasso.get().load(path).into(holder.homeImage);
+//        holder.imgviewupload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String url = Url.Base_URL+"images"+imgModel.getImagename();
+//
+//                Intent intent = new Intent(context, AfterclickingImage.class);
+//                intent.putExtra("Description",imgModel.getDescription());
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -61,11 +61,11 @@ String path= Url.Base_URL+"images"+ imgModel.getImagename();
 
     public class Holder extends RecyclerView.ViewHolder {
         private TextView descriptionforimage;
-        private ImageView imgviewupload;
+        private ImageView homeImage;
         public Holder(@NonNull View itemView) {
             super(itemView);
 
-            imgviewupload = itemView.findViewById(R.id.imgviewupload);
+            homeImage = itemView.findViewById(R.id.home_Image);
 
         }
     }

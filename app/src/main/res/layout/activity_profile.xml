@@ -16,24 +16,16 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/toolbar"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_red_light"
-            android:text="UPLOAD"
-            android:id="@+id/btnupload"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Profile"
+            android:textSize="40dp"
+            android:id="@+id/tvupdateprofile"
+            android:textStyle="bold"
+            android:textColor="@color/combo1"
+            android:textAlignment="center"/>
 
-            android:textColor="@android:color/white"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_red_light"
-            android:text="Update"
-            android:id="@+id/btnupdateprofile"
-            android:textColor="@android:color/white"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"/>
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
@@ -67,20 +59,7 @@
             android:layout_centerHorizontal="true"
             android:text="username is shown here"
             android:textSize="32dp"/>
-        <TextView
-            android:id="@+id/tvemailprofile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvusernameprofile"
-            android:hint="user email is shown here"
-            android:textSize="20dp"/>
-        <TextView
-            android:id="@+id/tvcontactprofile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvemailprofile"
-            android:hint="user contact is shown here"
-            android:textSize="20dp"/>
+
 
 
 
@@ -90,14 +69,74 @@
      android:layout_below="@+id/recv1"
      android:layout_width="match_parent"
      android:layout_height="match_parent">
-     
-     <android.support.v7.widget.RecyclerView
-        android:id="@+id/gallery"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent">
 
 
-     </android.support.v7.widget.RecyclerView>
+     <EditText
+         android:layout_width="400dp"
+         android:layout_marginLeft="5dp"
+         android:layout_height="wrap_content"
+         android:hint="first name"
+         android:gravity="center"
+         android:textColorHint="@android:color/black"
+         android:id="@+id/firstnameupdateptrofile"
+         android:ems="10"
+         android:inputType="text"
+         android:textSize="20dp"/>
+
+     <EditText
+         android:layout_width="400dp"
+         android:layout_marginLeft="5dp"
+         android:layout_height="wrap_content"
+         android:hint="last name"
+         android:gravity="center"
+         android:layout_below="@+id/firstnameupdateptrofile"
+
+         android:textColorHint="@android:color/black"
+         android:id="@+id/lastnameupdateptrofile"
+         android:ems="10"
+         android:inputType="text"
+         android:textSize="20dp"/>
+
+     <EditText
+         android:layout_width="400dp"
+         android:layout_marginLeft="5dp"
+         android:layout_height="wrap_content"
+         android:hint="email"
+         android:gravity="center"
+         android:layout_below="@+id/lastnameupdateptrofile"
+
+         android:textColorHint="@android:color/black"
+         android:id="@+id/emailupdateptrofile"
+         android:ems="10"
+         android:inputType="text"
+         android:textSize="20dp"/>
+
+     <EditText
+         android:layout_width="400dp"
+         android:layout_marginLeft="5dp"
+         android:layout_height="wrap_content"
+         android:hint="contact"
+         android:gravity="center"
+         android:layout_below="@+id/emailupdateptrofile"
+
+         android:textColorHint="@android:color/black"
+         android:id="@+id/contactupdateptrofile"
+         android:ems="10"
+         android:inputType="text"
+         android:textSize="20dp"/>
+
+     <Button
+         android:id="@+id/btnupdateuserprofile"
+         android:layout_width="200dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/contactupdateptrofile"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="40dp"
+         android:background="@drawable/button_rounded"
+         android:text="Update"
+         android:textColor="@color/white"
+         android:textSize="22dp" />
+
      
      
  </RelativeLayout>
